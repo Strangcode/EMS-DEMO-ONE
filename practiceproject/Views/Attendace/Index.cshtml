@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<practiceproject.Models.Attendance>
+@{
+
+    Layout = "_DashboardLayout";
+    ViewData["Title"] = "Index";
+    var count = 1;
+}
+<h1>Add Attendance</h1>
+<a asp-action="Create" asp-controller="Attendace" class="btn btn-primary mb-3">Add Attendance</a>
+
+<div class="container">
+
+   <table id="AttendanceTable" class="table table-hover table-bordered">
+   
+         <thead>
+               <tr>
+                <td>S.No</td>
+                <td> Name</td>
+                <td> Status</td>
+                <td> Date</td>
+               
+               </tr>
+        </thead>
+
+        <tbody>
+            @{
+
+                foreach (var records in Model)
+                {
+                    
+                <tr>
+               <td>@count</td>
+               <td>@records.Employee.empName</td>
+               <td>@records.Status</td>
+               <td>@records.Date.ToString("dddd, dd MMMM yyyy hh:mm tt")</td>
+             </tr>
+                    count++;
+                }
+            }
+             
+        
+ 
+       </tbody>
+
+   </table>
+
+</div>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<practiceproject.Models.Department>
+
+@{
+   // Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    Layout = "_DashboardLayout";
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+   
+    <h2 class="mb-3">Departments</h2>
+    <a asp-action="Create" class="btn btn-primary">Create Department</a>
+    <table id="departmentTable" class="table table-hover table-bordered" >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var department in Model)
+            {
+                <tr>
+                    <td>@department.DepartmentName</td>
+                    <td>@department.DepartmentDescription</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@department.Departid" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@department.Departid" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>   
+</div>
+
+

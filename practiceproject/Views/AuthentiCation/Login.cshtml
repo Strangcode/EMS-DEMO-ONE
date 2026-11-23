@@ -1,0 +1,32 @@
+﻿@model practiceproject.ViewModel.LoginViewModel
+
+@{
+   ViewData["Title"] = "Login";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <h2 class="text-center mb-4">Login</h2>
+            <form asp-action="Login" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="Email" class="form-control" placeholder="Enter your email">
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="Password" class="form-control" placeholder="Enter your password">
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+                 <div>
+                   <a asp-action="RegisterViewModel" asp-controller="AuthentiCation">Don't have an account? Register here</a>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>

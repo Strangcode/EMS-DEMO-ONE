@@ -1,0 +1,360 @@
+﻿/* =========================================
+   BASIC RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f6f8;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    min-height: 56px;
+}
+
+.navbar-brand {
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   MOBILE MENU BAR
+========================================= */
+
+.mobile-menu-bar {
+    display: none;
+}
+
+
+/* =========================================
+   DASHBOARD WRAPPER
+========================================= */
+
+.dashboard-wrapper {
+    display: flex;
+    position: relative;
+    min-height: calc(100vh - 56px);
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 240px;
+    min-height: calc(100vh - 56px);
+    background-color: #212529;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+}
+
+
+/* =========================================
+   SIDEBAR HEADER
+========================================= */
+
+.sidebar-header {
+    height: 60px;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #343a40;
+}
+
+
+.sidebar-menu-toggle {
+    border: none;
+    background: transparent;
+    color: white;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
+    .sidebar-menu-toggle i {
+        font-size: 21px;
+    }
+
+
+/* =========================================
+   SIDEBAR MENU
+========================================= */
+
+.sidebar-menu {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+
+    .sidebar-menu li {
+        width: 100%;
+    }
+
+
+        .sidebar-menu li a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 13px 18px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+
+            .sidebar-menu li a:hover {
+                background-color: #343a40;
+            }
+
+
+            .sidebar-menu li a i {
+                font-size: 18px;
+                width: 22px;
+                min-width: 22px;
+                text-align: center;
+            }
+
+
+/* =========================================
+   COLLAPSED SIDEBAR DESKTOP
+========================================= */
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+
+    .sidebar.collapsed .sidebar-header {
+        justify-content: center;
+        padding: 0;
+    }
+
+
+    .sidebar.collapsed .sidebar-menu-toggle {
+        justify-content: center;
+    }
+
+
+        .sidebar.collapsed .sidebar-menu-toggle span {
+            display: none;
+        }
+
+
+    .sidebar.collapsed .sidebar-menu li a {
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+        .sidebar.collapsed .sidebar-menu li a span {
+            display: none;
+        }
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 25px;
+}
+
+
+/* =========================================
+   SIDEBAR OVERLAY
+========================================= */
+
+.sidebar-overlay {
+    display: none;
+}
+
+
+/* =========================================
+   MOBILE / TABLET
+========================================= */
+
+@media (max-width: 991.98px) {
+
+
+    /* -------------------------------
+       MOBILE MENU BAR
+    -------------------------------- */
+
+    .mobile-menu-bar {
+        display: flex;
+        height: 50px;
+        background-color: #212529;
+        align-items: center;
+        padding: 0 15px;
+        border-top: 1px solid #343a40;
+    }
+
+
+        .mobile-menu-bar button {
+            border: none;
+            background: transparent;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+
+            .mobile-menu-bar button i {
+                font-size: 21px;
+            }
+
+
+    /* -------------------------------
+       DASHBOARD WRAPPER
+    -------------------------------- */
+
+    .dashboard-wrapper {
+        min-height: calc(100vh - 106px);
+        display: block;
+    }
+
+
+    /* -------------------------------
+       SIDEBAR
+    -------------------------------- */
+
+    .sidebar {
+        position: fixed;
+        top: 106px;
+        left: -240px;
+        width: 240px;
+        height: calc(100vh - 106px);
+        min-height: 0;
+        z-index: 1070;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+    }
+
+
+        /* Sidebar open */
+
+        .sidebar.show {
+            left: 0;
+        }
+
+
+        /* Desktop collapsed class should
+       not affect mobile */
+
+        .sidebar.collapsed {
+            width: 240px;
+        }
+
+
+    /* -------------------------------
+       SIDEBAR HEADER
+    -------------------------------- */
+
+    .sidebar-header {
+        display: none;
+    }
+
+
+    /* -------------------------------
+       SIDEBAR MENU
+    -------------------------------- */
+
+    .sidebar-menu {
+        padding-top: 15px;
+    }
+
+
+        .sidebar-menu li a {
+            padding: 14px 20px;
+        }
+
+
+            .sidebar-menu li a span {
+                display: inline;
+            }
+
+
+    /* -------------------------------
+       OVERLAY
+    -------------------------------- */
+
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 106px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 106px);
+        background-color: rgba(0, 0, 0, 0.45);
+        z-index: 1060;
+    }
+
+
+        .sidebar-overlay.show {
+            display: block;
+        }
+
+
+    /* -------------------------------
+       MAIN CONTENT
+    -------------------------------- */
+
+    .main-content {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 575.98px) {
+
+    .navbar-brand {
+        font-size: 16px;
+    }
+
+
+    .main-content {
+        padding: 15px;
+    }
+
+
+    .sidebar {
+        width: 230px;
+        left: -230px;
+    }
+
+
+        .sidebar.show {
+            left: 0;
+        }
+}

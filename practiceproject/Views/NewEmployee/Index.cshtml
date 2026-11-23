@@ -1,0 +1,112 @@
+﻿
+@model IEnumerable<practiceproject.Models.NewEmployee>
+
+@{
+    Layout = "_DashboardLayout";
+    ViewData["Title"] = "Employees";
+}
+
+<div class="container-fluid py-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold">Employee Management</h2>
+            <p class="text-muted mb-0">
+                Manage your employees and their details.
+            </p>
+        </div>
+
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-lg"></i> Add Employee
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-white py-3">
+            <h5 class="mb-0">Employee List</h5>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+
+                <table id="employeeTable"
+                       class="table table-hover table-bordered align-middle">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Employee Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Department</th>
+                            <th>Position</th>
+                            <th>Salary</th>
+                            <th>Joining Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model != null && Model.Any())
+                        {
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.empName</td>
+                                    <td>@item.empEmail</td>
+                                    <td>@item.phoneNumber</td>
+                                    <td>
+                                        @(item.department?.DepartmentName ?? "N/A")
+                                    </td>
+                                    <td>@item.empPosition</td>
+                                    <td>
+                                        @item.empSalary.ToString("N2")
+                                    </td>
+                                    <td>
+                                        @item.empJoiningDate.ToString("dd-MM-yyyy")
+                                    </td>
+                                    <td>
+                                        <div class="d-flex gap-2">
+                                            <a asp-action="Details"
+                                            asp-route-id="@item.empId"
+                                            class="btn btn-sm btn-info">
+                                                Details
+                                            </a>
+
+                                            <a asp-action="Edit"
+                                            asp-route-id="@item.empId"
+                                            class="btn btn-sm btn-warning">
+                                                Edit
+                                            </a>
+
+                                            <a asp-action="Delete"
+                                            asp-route-id="@item.empId"
+                                            class="btn btn-sm btn-danger">
+                                                Delete
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        
+                        {
+                            <tr>
+            <td colspan="8" class="text-center text-muted py-4">
+                No employee records found.
+            </td>
+        </tr>
+                        
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+```

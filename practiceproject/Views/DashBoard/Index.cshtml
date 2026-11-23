@@ -1,0 +1,90 @@
+﻿ 
+
+@{
+     Layout = "_DashboardLayout";
+  ViewData["Title"] = "Dashboard";
+}
+
+<h1>Welcome to the Dashboard</h1>
+
+ <div class="row g-4 mt-3">
+
+                <div class="col-md-3">
+
+                    <div class="card dashboard-card">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Employees
+                            </h5>
+
+                            <h2>
+                                @ViewBag.TotalEmployee
+                            </h2>
+
+                            <p class="card-text">
+                                Total Employees
+
+
+                                
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                ..
+
+
+                <div class="col-md-3">
+
+                    <div class="card dashboard-card">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Department
+                            </h5>
+
+                            <h2>
+                    @ViewBag.TotalDepartment
+                            </h2>
+
+                            <p class="card-text">
+                                Total Departments
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="card dashboard-card">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Present
+                            </h5>
+
+                            <h2>
+                    @ViewBag.PresentTodayEmployee
+                            </h2>
+
+                            <p class="card-text">
+                                Today's Attendance
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>

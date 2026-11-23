@@ -1,0 +1,38 @@
+﻿@model practiceproject.Models.NewEmployee
+
+@{
+
+    Layout = "_DashboardLayout";
+    ViewData["Title"] = "Delete Employee";
+
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card shadow-sm">
+                <!-- Card Header -->
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">Delete Employee</h4>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <form asp-action="DeleteConfirmed" method="post">
+                        <input type="hidden" name="empId" value="@Model.empId" />
+                        <p>Are you sure you want to delete the following employee?</p>
+                        <ul>
+                            <li><strong>Name:</strong> @Model.empName</li>
+                            <li><strong>Salary:</strong> @Model.empSalary</li>
+                            <li><strong>Position:</strong> @Model.empPosition</li>
+                            <li><strong>Email:</strong> @Model.empEmail</li>
+                            <li><strong>Phone Number:</strong> @Model.phoneNumber</li>
+                            <li><strong>Department:</strong> @Model.department.DepartmentName</li>
+                        </ul>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model practiceproject.Models.NewEmployee
+
+
+@{
+
+    Layout = "_DashboardLayout";
+    ViewData["Title"] = "Employee Details";
+
+}
+
+
+<div class="container-fluid py-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-white py-3">
+            <h5 class="mb-0">Employee Details</h5>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Employee Name:</dt>
+                <dd class="col-sm-9">@Model.empName</dd>
+                <dt class="col-sm-3">Email:</dt>
+                <dd class="col-sm-9">@Model.empEmail</dd>
+                <dt class="col-sm-3">Phone Number:</dt>
+                <dd class="col-sm-9">@Model.phoneNumber</dd>
+                <dt class="col-sm-3">Department:</dt>
+                <dd class="col-sm-9">@Model.department?.DepartmentName</dd>
+                <dt class="col-sm-3">Position:</dt>
+                <dd class="col-sm-9">@Model.empPosition</dd>
+                <dt class="col-sm-3">Salary:</dt>
+                <dd class="col-sm-9">@Model.empSalary</dd>
+                <dt class="col-sm-3">Joining Date:</dt>
+                <dd class="col-sm-9">@Model.empJoiningDate</dd>
+            </dl>
+            <a asp-action="Index" class="btn btn-secondary mt-3">
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>

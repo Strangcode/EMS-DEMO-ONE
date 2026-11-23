@@ -1,0 +1,175 @@
+﻿@model practiceproject.ViewModel.EmployeeViewModel
+
+
+@{
+
+    Layout = "_DashboardLayout";
+    ViewData["Title"] = "Edit Employee";
+
+}
+
+
+<div class="container mt-4">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-10 col-lg-8">
+
+            <div class="card shadow-sm">
+
+                <!-- Card Header -->
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Edit Employee</h4>
+                </div>
+
+                <!-- Card Body -->
+                <div class="card-body">
+
+                    <form asp-action="Update" method="post">
+                        <input type="hidden" asp-for="Employee_.empId" />
+                        <div class="row">
+
+                            <!-- Employee Name -->
+                            <div class="col-md-6 mb-3">
+
+                                <label asp-for="Employee_.empName"
+                                       class="form-label">
+                                    Employee Name
+                                </label>
+
+                                <input asp-for="Employee_.empName"
+                                       class="form-control"
+                                       placeholder="Enter employee name" />
+
+                                <span asp-validation-for="Employee_.empName"
+                                      class="text-danger"></span>
+
+                            </div>
+
+                            <!-- Employee Salary -->
+                            <div class="col-md-6 mb-3">
+
+                                <label asp-for="Employee_.empSalary"
+                                       class="form-label">
+                                    Salary
+                                </label>
+
+                                <input asp-for="Employee_.empSalary"
+                                       class="form-control"
+                                       placeholder="Enter salary" />
+
+                                <span asp-validation-for="Employee_.empSalary"
+                                      class="text-danger"></span>
+
+                            </div>
+
+                            <!-- employee email-->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label asp-for="Employee_.empEmail"
+                                       class="form-label">
+                                    Email
+                                </label>
+
+                                <input asp-for="Employee_.empEmail"
+                                       class="form-control"
+                                       type="email"
+                                       placeholder="Enter email" />
+
+                                <span asp-validation-for="Employee_.empEmail"
+                                      class="text-danger"></span>
+
+                            </div>
+                            <!--Employee Postion-->
+
+
+                            <div class="col-md-6 mb-3">
+
+                                <label asp-for="Employee_.empPosition"
+                                       class="form-label">
+                                    Employee Position
+                                </label>
+
+                                <input asp-for="Employee_.empPosition"
+                                       class="form-control"
+                                       placeholder="Enter Position" />
+
+                                <span asp-validation-for="Employee_.empPosition"
+                                      class="text-danger"></span>
+
+                            </div>
+
+
+                            <!--Employee Phone Number -->
+
+
+                            <div class="col-md-6 mb-3">
+
+                                <label asp-for="Employee_.phoneNumber"
+                                       class="form-label">
+                                    Phone Number
+                                </label>
+
+                                <input asp-for="Employee_.phoneNumber"
+                                       class="form-control"
+                                       type="tel" maxlength="10"
+                                       placeholder="Enter Phone Number" />
+
+                                <span asp-validation-for="Employee_.phoneNumber"
+                                      class="text-danger"></span>
+
+                            </div>
+
+                            <!-- Department Dropdown -->
+                            <div class="col-md-6 mb-3">
+
+                                <label asp-for="Employee_.departmentId"
+                                       class="form-label">
+                                    Department
+                                </label>
+
+                                <select asp-for="Employee_.departmentId"
+                                        asp-items="Model.DepartmentList"
+                                        class="form-select">
+
+                                    <option value="">
+                                        Select Department
+                                    </option>
+
+                                </select>
+
+                                <span asp-validation-for="Employee_.departmentId"
+                                      class="text-danger"></span>
+
+                            </div>
+
+                        </div>
+
+                       
+
+                       
+
+                        <!-- Buttons -->
+                        <div class="mt-3">
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                Update Employee
+                            </button>
+
+                            <a asp-action="Index"
+                               class="btn btn-secondary">
+                                back to List
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
